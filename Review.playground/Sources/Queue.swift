@@ -1,18 +1,18 @@
 import Foundation
 
-final class LinkedList<T> {
-    let value: T
-    var next: LinkedList<T>?
-    init (_ value: T) {
-        self.value = value
-    }
-}
-
 struct Queue<T> {
-    var head: LinkedList<T>?
-    var tail: LinkedList<T>?
+    private final class LinkedList<T> {
+        let value: T
+        var next: LinkedList<T>?
+        init (_ value: T) {
+            self.value = value
+        }
+    }
     
-    mutating func enqueue(x :T) {
+    private var head: LinkedList<T>?
+    private var tail: LinkedList<T>?
+    
+    mutating func enqueue(_ x :T) {
         let node = LinkedList(x)
         guard self.tail != nil else {
             self.tail = node
@@ -32,5 +32,4 @@ struct Queue<T> {
         }
         return h.value
     }
-    
 }

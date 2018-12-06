@@ -20,19 +20,12 @@ extension Graph: CustomStringConvertible {
     }
 }
 
-public final class Graph<T: Hashable> {
+public struct Graph<T: Hashable> {
     public init() {}
+    
     public struct Vertex: Hashable {
         var data: T
         var index: Int
-    }
-    
-    subscript (index: Int) -> EdgeList {
-        return adjacencyList[index]
-    }
-    
-    var count: Int {
-        return adjacencyList.count
     }
     
     public struct Edge: Hashable {
@@ -45,15 +38,21 @@ public final class Graph<T: Hashable> {
         }
     }
     
-    final class EdgeList: Hashable {
+    subscript (index: Int) -> EdgeList {
+        return adjacencyList[index]
+    }
+    
+    var count: Int {
+        return adjacencyList.count
+    }
+    
+    final class EdgeList {
         static func == (lhs: EdgeList, rhs: EdgeList) -> Bool {
             return lhs.vertex == rhs.vertex
         }
-        
         func hash(into hasher: inout Hasher) {
             hasher.combine(self.vertex)
         }
-        
         let vertex: Vertex
         var edges: Set<Edge> = []
         init (vertex: Vertex) {
@@ -63,7 +62,7 @@ public final class Graph<T: Hashable> {
     
     private var adjacencyList: [EdgeList] = []
     
-    public func createVertex(data: T) -> Vertex {
+    public mutating func createVertex(data: T) -> Vertex {
         let vertex = Vertex(data: data, index: adjacencyList.count)
         adjacencyList.append(EdgeList(vertex: vertex))
         return vertex

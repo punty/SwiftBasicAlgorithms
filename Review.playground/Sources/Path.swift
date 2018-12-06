@@ -1,6 +1,6 @@
 import Foundation
 
-public class Path<T: Hashable> {
+public struct Path<T: Hashable> {
     private var visited: [Bool]
     private var edgesTo: [Int]
     private let graph: Graph<T>
@@ -24,7 +24,7 @@ public class Path<T: Hashable> {
         }
     }
     
-    private func dfs(vertex: Graph<T>.Vertex) {
+    private mutating func dfs(vertex: Graph<T>.Vertex) {
         visited[vertex.index] = true
         for edge in graph[vertex.index].edges {
             if !visited[edge.to.index] {
@@ -34,15 +34,14 @@ public class Path<T: Hashable> {
         }
     }
     
-    private func bfs(vertex: Graph<T>.Vertex) {
-        var queue = [Int]()
-        queue.append(vertex.index)
+    private mutating func bfs(vertex: Graph<T>.Vertex) {
+        var queue = Queue<Int>()
+        queue.enqueue(vertex.index)
         visited[vertex.index] = true
-        while !queue.isEmpty {
-            let idx = queue.removeFirst()
+        while let idx = queue.dequeue() {
             for edge in graph[idx].edges {
                 if !visited[edge.to.index] {
-                    queue.append(edge.to.index)
+                    queue.enqueue(edge.to.index)
                     visited[edge.to.index] = true
                     edgesTo[edge.to.index] = idx
                 }

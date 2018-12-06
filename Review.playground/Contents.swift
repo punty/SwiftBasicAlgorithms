@@ -1,6 +1,6 @@
 import Cocoa
 
-let g = Graph<Int>()
+var g = Graph<Int>()
 let v0 = g.createVertex(data: 0)
 let v1 = g.createVertex(data: 1)
 let v2 = g.createVertex(data: 2)
