@@ -18,32 +18,32 @@ public struct Path<T: Hashable> {
         self.edgesTo = Array<Int>(repeating: -1, count: graph.count)
         switch type {
         case .bfs:
-            bfs(vertex: start)
+            bfs(vertex: start.index)
         case .dfs:
-            dfs(vertex: start)
+            dfs(vertex: start.index)
         }
     }
     
-    private mutating func dfs(vertex: Graph<T>.Vertex) {
-        visited[vertex.index] = true
-        for edge in graph[vertex.index].edges {
-            if !visited[edge.to.index] {
-                dfs(vertex: edge.to)
-                edgesTo[edge.to.index] = vertex.index
+    private mutating func dfs(vertex: Int) {
+        visited[vertex] = true
+        for edge in graph[vertex].edges {
+            if !visited[edge] {
+                dfs(vertex: edge)
+                edgesTo[edge] = vertex
             }
         }
     }
     
-    private mutating func bfs(vertex: Graph<T>.Vertex) {
+    private mutating func bfs(vertex: Int) {
         var queue = Queue<Int>()
-        queue.enqueue(vertex.index)
-        visited[vertex.index] = true
+        queue.enqueue(vertex)
+        visited[vertex] = true
         while let idx = queue.dequeue() {
             for edge in graph[idx].edges {
-                if !visited[edge.to.index] {
-                    queue.enqueue(edge.to.index)
-                    visited[edge.to.index] = true
-                    edgesTo[edge.to.index] = idx
+                if !visited[edge] {
+                    queue.enqueue(edge)
+                    visited[edge] = true
+                    edgesTo[edge] = idx
                 }
             }
         }

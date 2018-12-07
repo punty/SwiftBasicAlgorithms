@@ -12,7 +12,7 @@ extension Graph: CustomStringConvertible {
         for l in adjacencyList {
             d.append("\(l.vertex.data) -> ")
             for e in l.edges {
-                d.append("[\(e.to.data) (\(e.weight))]")
+                d.append("[\(e)]")
             }
             d.append("\n")
         }
@@ -26,16 +26,6 @@ public struct Graph<T: Hashable> {
     public struct Vertex: Hashable {
         var data: T
         var index: Int
-    }
-    
-    public struct Edge: Hashable {
-        let to: Vertex
-        var weight: Double
-        
-        init(to: Vertex, weight: Double = 1.0) {
-            self.to = to
-            self.weight = weight
-        }
     }
     
     subscript (index: Int) -> EdgeList {
@@ -54,7 +44,8 @@ public struct Graph<T: Hashable> {
             hasher.combine(self.vertex)
         }
         let vertex: Vertex
-        var edges: Set<Edge> = []
+        var edges: Set<Int> = []
+        var weights: [Int: Double] = [:]
         init (vertex: Vertex) {
             self.vertex = vertex
         }
@@ -71,7 +62,9 @@ public struct Graph<T: Hashable> {
     public func createEdges(from: Vertex, to: Vertex, weight: Double = 1.0) {
         guard let edjesFrom = adjacencyList[safe: from.index],
             let edjesTo = adjacencyList[safe: to.index] else {return}
-        edjesFrom.edges.insert(Edge(to: to, weight: weight))
-        edjesTo.edges.insert(Edge(to: from, weight: weight))
+        edjesFrom.edges.insert(to.index)
+        edjesFrom.weights[to.index] = weight
+        edjesTo.edges.insert(from.index)
+        edjesTo.weights[from.index] = weight
     }
 }

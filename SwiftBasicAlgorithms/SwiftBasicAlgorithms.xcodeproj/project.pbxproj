@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		292042DF21BAC941002E64B8 /* Graph+Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292042DE21BAC941002E64B8 /* Graph+Generator.swift */; };
+		292042E021BAC941002E64B8 /* Graph+Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292042DE21BAC941002E64B8 /* Graph+Generator.swift */; };
 		918FCB0D21B9C9DB00BD82B0 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918FCB0C21B9C9DB00BD82B0 /* main.swift */; };
 		918FCB1A21B9CA4E00BD82B0 /* SwiftBasicAlgorithmsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918FCB1921B9CA4E00BD82B0 /* SwiftBasicAlgorithmsTests.swift */; };
 		918FCB2421B9CAA800BD82B0 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918FCB2021B9CAA800BD82B0 /* Path.swift */; };
@@ -32,6 +34,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		292042DE21BAC941002E64B8 /* Graph+Generator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Graph+Generator.swift"; sourceTree = "<group>"; };
 		918FCB0921B9C9DB00BD82B0 /* SwiftBasicAlgorithms */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SwiftBasicAlgorithms; sourceTree = BUILT_PRODUCTS_DIR; };
 		918FCB0C21B9C9DB00BD82B0 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		918FCB1721B9CA4E00BD82B0 /* SwiftBasicAlgorithmsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftBasicAlgorithmsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +64,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		292042DD21BAC920002E64B8 /* Algorithms */ = {
+			isa = PBXGroup;
+			children = (
+				292042DE21BAC941002E64B8 /* Graph+Generator.swift */,
+			);
+			path = Algorithms;
+			sourceTree = "<group>";
+		};
 		918FCB0021B9C9DA00BD82B0 = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +93,7 @@
 		918FCB0B21B9C9DB00BD82B0 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				292042DD21BAC920002E64B8 /* Algorithms */,
 				918FCB1F21B9CA6E00BD82B0 /* DataStructures */,
 				918FCB0C21B9C9DB00BD82B0 /* main.swift */,
 			);
@@ -198,6 +210,7 @@
 			files = (
 				918FCB2521B9CAA800BD82B0 /* Tree.swift in Sources */,
 				918FCB2421B9CAA800BD82B0 /* Path.swift in Sources */,
+				292042DF21BAC941002E64B8 /* Graph+Generator.swift in Sources */,
 				918FCB0D21B9C9DB00BD82B0 /* main.swift in Sources */,
 				918FCB2621B9CAA800BD82B0 /* Queue.swift in Sources */,
 				918FCB2721B9CAA800BD82B0 /* Graph.swift in Sources */,
@@ -210,6 +223,7 @@
 			files = (
 				918FCB2B21B9CCD000BD82B0 /* Tree.swift in Sources */,
 				918FCB2821B9CCD000BD82B0 /* Graph.swift in Sources */,
+				292042E021BAC941002E64B8 /* Graph+Generator.swift in Sources */,
 				918FCB2921B9CCD000BD82B0 /* Path.swift in Sources */,
 				918FCB1A21B9CA4E00BD82B0 /* SwiftBasicAlgorithmsTests.swift in Sources */,
 				918FCB2A21B9CCD000BD82B0 /* Queue.swift in Sources */,
