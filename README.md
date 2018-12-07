@@ -6,3 +6,8 @@ A collection of basic CS Algorithms
 - Graphs:
   - BFS
   - DFS
+
+- Graph Generators:
+  - Erdős–Rényi (n,M)
+  - Erdős–Rényi (n,P)
+
