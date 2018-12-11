@@ -8,20 +8,25 @@
 
 import Foundation
 
-struct Path<T: Hashable>: Search {
-    var visited: [Bool] = []
-    var edgesTo: [Int] = []
+class Path<T: Hashable>: Search {
+    var visited: [Bool]
+    var edgesTo: [Int]
     var start: Graph<T>.Vertex
     var graph: Graph<T>
     
     init (graph: Graph<T>, start: Graph<T>.Vertex, type: SearchType) {
         self.graph = graph
         self.start = start
+        self.visited = Array<Bool>(repeating: false, count: graph.count)
+        self.edgesTo = Array<Int>(repeating: -1, count: graph.count)
+        let visit = { (idx: Int, from: Int?) in
+            self.edgesTo[idx] = from ?? -1
+        }
         switch type {
         case .bfs:
-            (visited, edgesTo) = bfs(vertex: start.index)
+            bfs(vertex: start.index, visited: &visited, visit: visit)
         case .dfs:
-            (visited, edgesTo) = dfs(vertex: start.index)
+            dfs(vertex: start.index, visited: &visited, visit: visit)
         }
     }
 }
