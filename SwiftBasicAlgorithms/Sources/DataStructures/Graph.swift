@@ -20,7 +20,7 @@ extension Graph: CustomStringConvertible {
     }
 }
 
-public struct Graph<T: Hashable> {
+struct Graph<T: Hashable> {
     public init() {}
     
     public struct Vertex: Hashable {
