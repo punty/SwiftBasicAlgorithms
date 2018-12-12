@@ -24,9 +24,9 @@ class Path<T: Hashable>: Search {
         }
         switch type {
         case .bfs:
-            bfs(vertex: start.index, visited: &visited, visit: visit)
+            bfs(vertex: start.index, visit: visit)
         case .dfs:
-            dfs(vertex: start.index, visited: &visited, visit: visit)
+            dfs(vertex: start.index, visit: visit)
         }
     }
 }

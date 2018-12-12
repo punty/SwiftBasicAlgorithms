@@ -5,16 +5,17 @@ enum SearchType {
     case bfs
 }
 
-protocol Search {
+protocol Search: class {
     associatedtype T: Hashable
     var graph: Graph<T> { get }
-    func dfs(vertex: Int, visited:inout [Bool], visit: (Int, Int?)->Void)
-    func bfs(vertex: Int, visited:inout [Bool], visit: (Int, Int?)->Void)
+    var visited: [Bool] { get set }
+    func dfs(vertex: Int, visit: (Int, Int?)->Void)
+    func bfs(vertex: Int, visit: (Int, Int?)->Void)
 }
 
 extension Search {
     
-    func dfs(vertex: Int, visited:inout [Bool], visit: (Int, Int?)->Void) {
+    func dfs(vertex: Int, visit: (Int, Int?)->Void) {
         var stack = Stack<(Int, Int?)>()
         stack.push((vertex, nil))
         while !stack.isEmpty {
@@ -31,7 +32,7 @@ extension Search {
         }
     }
     
-    func bfs(vertex: Int, visited:inout [Bool], visit: (Int, Int?)->Void) {
+    func bfs(vertex: Int, visit: (Int, Int?)->Void) {
         var queue = Queue<Int>()
         queue.enqueue(vertex)
         visited[vertex] = true

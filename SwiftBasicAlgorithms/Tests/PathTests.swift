@@ -8,8 +8,6 @@
 
 import XCTest
 
-
-
 class PathTests: XCTestCase {
 
     lazy var graph: Graph<Int> = {

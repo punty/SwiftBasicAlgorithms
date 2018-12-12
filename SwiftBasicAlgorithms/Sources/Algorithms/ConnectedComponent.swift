@@ -8,8 +8,7 @@
 
 import Foundation
 
-
-class ConnectedComponent<T: Hashable>: Search {
+class ConnectedComponent<T: Hashable>: Search {  
     var visited: [Bool]
     var connectedComponent: [Int] = []
     var graph: Graph<T>
@@ -24,7 +23,7 @@ class ConnectedComponent<T: Hashable>: Search {
         var cId = 0
         for idx in graph.vertexesIndex {
             if !visited[idx] {
-                dfs(vertex: idx, visited: &visited) { (idx, _) in
+                dfs(vertex: idx) { (idx, _) in
                     self.connectedComponent[idx] = cId
                 }
                 cId += 1
