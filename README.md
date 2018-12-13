@@ -7,6 +7,7 @@ A collection of basic CS Algorithms
   - BFS
   - DFS
   - Connected Components
+  - Bipartite Graph
 
 - Graph Generators:
   - Erdős–Rényi (n,M)
