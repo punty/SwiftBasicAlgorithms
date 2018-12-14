@@ -8,13 +8,20 @@
 
 import Foundation
 
-class BipartiteGraph<T: Hashable> {
-    var visited: [Bool]
-    var graph: Graph<T>
-   
-    init (graph: Graph<T>) {
-        self.graph = graph
-        visited = Array<Bool>(repeating: false, count: graph.count)
+extension Graph {
+    func isBipartite() -> Bool {
+        if self.count == 0 {
+            return true
+        }
+        var color = Array<Int>(repeating: -1, count: self.count)
+        for idx in self.vertexesIndex {
+            if color[idx] < 0 {
+                if !isBipartite(start: idx, color: &color) {
+                    return false
+                }
+            }
+        }
+        return true
     }
     
     func isBipartite(start: Int, color:inout [Int]) -> Bool {
@@ -22,7 +29,7 @@ class BipartiteGraph<T: Hashable> {
         var queue = Queue<Int>()
         queue.enqueue(start)
         while let idx = queue.dequeue() {
-            for edge in graph[idx].edges {
+            for edge in self[idx].edges {
                 if color[edge] < 0 {
                     queue.enqueue(edge)
                     color[edge] = 1 - color[idx]
@@ -30,21 +37,6 @@ class BipartiteGraph<T: Hashable> {
                     if color[edge] == color[idx] {
                         return false
                     }
-                }
-            }
-        }
-        return true
-    }
-    
-    func isBipartite() -> Bool {
-        if graph.count == 0 {
-            return true
-        }
-        var color = Array<Int>(repeating: -1, count: graph.count)
-        for idx in graph.vertexesIndex {
-            if color[idx] < 0 {
-                if !isBipartite(start: idx, color: &color) {
-                    return false
                 }
             }
         }

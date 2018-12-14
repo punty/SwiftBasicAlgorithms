@@ -36,13 +36,13 @@ struct Graph<T: Hashable> {
         return adjacencyList.count
     }
     
-    lazy var vertexes: [Vertex] = {
+    var vertexes: [Vertex]  {
         return adjacencyList.map { $0.vertex }
-    }()
+    }
     
-    lazy var vertexesIndex: [Int] = {
-        return vertexes.map {$0.index}
-    }()
+    var vertexesIndex: [Int]  {
+        return adjacencyList.map { $0.vertex.index }
+    }
     
     final class EdgeList {
         static func == (lhs: EdgeList, rhs: EdgeList) -> Bool {

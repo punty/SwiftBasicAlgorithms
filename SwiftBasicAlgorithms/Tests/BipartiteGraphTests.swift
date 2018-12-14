@@ -22,8 +22,7 @@ class BipartiteGraphTests: XCTestCase {
         simpleGraph.createEdges(from: v2, to: v4)
         simpleGraph.createEdges(from: v3, to: v3)
         simpleGraph.createEdges(from: v2, to: v3)
-        let b = BipartiteGraph(graph: simpleGraph)
-        XCTAssertFalse(b.isBipartite())
+        XCTAssertFalse(simpleGraph.isBipartite())
     }
 
     func testBipartite() {
@@ -37,14 +36,12 @@ class BipartiteGraphTests: XCTestCase {
         simpleGraph.createEdges(from: v1, to: v3)
         simpleGraph.createEdges(from: v2, to: v4)
         simpleGraph.createEdges(from: v2, to: v3)
-        let b = BipartiteGraph(graph: simpleGraph)
-        XCTAssertTrue(b.isBipartite())
+        XCTAssertTrue(simpleGraph.isBipartite())
     }
     
     func testEmptyGraph() {
         let simpleGraph = Graph<Int>()
-        let b = BipartiteGraph(graph: simpleGraph)
-        XCTAssertTrue(b.isBipartite())
+        XCTAssertTrue(simpleGraph.isBipartite())
     }
     
     func testNotStronglyConnectedGraph() {
@@ -61,8 +58,7 @@ class BipartiteGraphTests: XCTestCase {
         simpleGraph.createEdges(from: v2, to: v4)
         simpleGraph.createEdges(from: v2, to: v3)
         simpleGraph.createEdges(from: v5, to: v6)
-        let b = BipartiteGraph(graph: simpleGraph)
-        XCTAssertTrue(b.isBipartite())
+        XCTAssertTrue(simpleGraph.isBipartite())
     }
 
     func testNotStronglyConnectedGraphNotBipartite() {
@@ -83,7 +79,6 @@ class BipartiteGraphTests: XCTestCase {
         simpleGraph.createEdges(from: v5, to: v7)
         simpleGraph.createEdges(from: v6, to: v7)
         simpleGraph.createEdges(from: v7, to: v5)
-        let b = BipartiteGraph(graph: simpleGraph)
-        XCTAssertFalse(b.isBipartite())
+        XCTAssertFalse(simpleGraph.isBipartite())
     }
 }
