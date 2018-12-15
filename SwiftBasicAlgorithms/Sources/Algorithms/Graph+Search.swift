@@ -1,21 +1,8 @@
+
 import Foundation
 
-enum SearchType {
-    case dfs
-    case bfs
-}
-
-protocol Search: class {
-    associatedtype T: Hashable
-    var graph: Graph<T> { get }
-    var visited: [Bool] { get set }
-    func dfs(vertex: Int, visit: (Int, Int?)->Void)
-    func bfs(vertex: Int, visit: (Int, Int?)->Void)
-}
-
-extension Search {
-    
-    func dfs(vertex: Int, visit: (Int, Int?)->Void) {
+extension Graph {
+    func dfs(vertex: Int, visited: inout [Bool], visit: (Int, Int?)->Void) {
         var stack = Stack<(Int, Int?)>()
         stack.push((vertex, nil))
         while !stack.isEmpty {
@@ -24,7 +11,7 @@ extension Search {
                 visited[el.0] = true
                 visit(el.0, el.1)
             }
-            for edge in graph[el.0].edges {
+            for edge in self[el.0].edges {
                 if !visited[edge] {
                     stack.push((edge,el.0))
                 }
@@ -32,13 +19,13 @@ extension Search {
         }
     }
     
-    func bfs(vertex: Int, visit: (Int, Int?)->Void) {
+    func bfs(vertex: Int, visited: inout [Bool], visit: (Int, Int?)->Void) {
         var queue = Queue<Int>()
         queue.enqueue(vertex)
         visited[vertex] = true
         visit(vertex, nil)
         while let idx = queue.dequeue() {
-            for edge in graph[idx].edges {
+            for edge in self[idx].edges {
                 if !visited[edge] {
                     queue.enqueue(edge)
                     visited[edge] = true

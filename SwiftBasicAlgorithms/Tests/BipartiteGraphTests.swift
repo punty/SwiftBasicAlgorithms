@@ -1,10 +1,3 @@
-//
-//  BipartiteGraphTests.swift
-//  SwiftBasicAlgorithmsTests
-//
-//  Created by Francesco Puntillo on 13/12/2018.
-//  Copyright © 2018 FP. All rights reserved.
-//
 
 import XCTest
 

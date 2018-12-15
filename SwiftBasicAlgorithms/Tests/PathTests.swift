@@ -1,10 +1,3 @@
-//
-//  PathTests.swift
-//  SwiftBasicAlgorithmsTests
-//
-//  Created by Francesco Puntillo on 11/12/2018.
-//  Copyright © 2018 FP. All rights reserved.
-//
 
 import XCTest
 
@@ -26,7 +19,7 @@ class PathTests: XCTestCase {
     }()
     
     func testPath() {
-        let p = Path(graph: graph, start: graph[0].vertex, type: .bfs)
+        let p = Path(graph: graph, start: graph[0].vertex)
         let pa = p.path(to: graph[4].vertex)
         XCTAssertEqual(pa.map {$0.index}, [4,1])
     }

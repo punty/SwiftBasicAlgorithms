@@ -1,10 +1,3 @@
-//
-//  BipartiteGraph.swift
-//  SwiftBasicAlgorithms
-//
-//  Created by Francesco Puntillo on 12/12/2018.
-//  Copyright © 2018 FP. All rights reserved.
-//
 
 import Foundation
 

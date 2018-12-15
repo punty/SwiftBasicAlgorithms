@@ -1,10 +1,3 @@
-//
-//  Graph+Generator.swift
-//  SwiftBasicAlgorithms
-//
-//  Created by Francesco Puntillo on 07/12/2018.
-//  Copyright © 2018 FP. All rights reserved.
-//
 
 import Foundation
 
@@ -30,7 +23,6 @@ extension Graph where T == Int {
     }
     
     //Use n,p Erdős–Rényi: a graph is constructed by connecting nodes randomly. Each edge is included in the graph with probability p independent from every other edge.
-    //The complexity Of this Algorithm is quadratic do we have a way to improve it?
     static func generate(n: Int, p: Double) -> Graph {
         var graph = Graph()
         let vertexRange = 0..<n

@@ -1,20 +1,13 @@
-//
-//  Path.swift
-//  SwiftBasicAlgorithms
-//
-//  Created by Francesco Puntillo on 11/12/2018.
-//  Copyright © 2018 FP. All rights reserved.
-//
 
 import Foundation
 
-class Path<T: Hashable>: Search {
+class Path<T: Hashable> {
     var visited: [Bool]
     var edgesTo: [Int]
     var start: Graph<T>.Vertex
     var graph: Graph<T>
     
-    init (graph: Graph<T>, start: Graph<T>.Vertex, type: SearchType) {
+    init (graph: Graph<T>, start: Graph<T>.Vertex) {
         self.graph = graph
         self.start = start
         self.visited = Array<Bool>(repeating: false, count: graph.count)
@@ -22,12 +15,7 @@ class Path<T: Hashable>: Search {
         let visit = { (idx: Int, from: Int?) in
             self.edgesTo[idx] = from ?? -1
         }
-        switch type {
-        case .bfs:
-            bfs(vertex: start.index, visit: visit)
-        case .dfs:
-            dfs(vertex: start.index, visit: visit)
-        }
+        graph.bfs(vertex: start.index, visited: &visited, visit: visit)
     }
 }
 

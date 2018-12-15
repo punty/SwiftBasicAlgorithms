@@ -1,10 +1,3 @@
-//
-//  ConnectedComponentTests.swift
-//  SwiftBasicAlgorithmsTests
-//
-//  Created by Francesco Puntillo on 11/12/2018.
-//  Copyright © 2018 FP. All rights reserved.
-//
 
 import XCTest
 
@@ -26,8 +19,7 @@ class ConnectedComponentTests: XCTestCase {
     }()
     
     func testConnectedComponent() {
-        let c = ConnectedComponent(graph: graph)
-        XCTAssertEqual(c.connectedComponent, [0,0,0,0,1,1])
+        XCTAssertEqual(graph.connectedComponents(), [0,0,0,0,1,1])
     }
 
 }
