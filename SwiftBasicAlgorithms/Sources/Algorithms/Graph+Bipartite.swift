@@ -17,7 +17,7 @@ extension Graph {
         return true
     }
     
-    func isBipartite(start: Int, color:inout [Int]) -> Bool {
+    private func isBipartite(start: Int, color:inout [Int]) -> Bool {
         color[start] = 1
         var queue = Queue<Int>()
         queue.enqueue(start)

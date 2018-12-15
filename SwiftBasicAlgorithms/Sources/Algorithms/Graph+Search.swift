@@ -4,9 +4,13 @@ import Foundation
 extension Graph {
     func dfs(vertex: Int, visited: inout [Bool], visit: (Int, Int?)->Void) {
         var stack = Stack<(Int, Int?)>()
-        stack.push((vertex, nil))
+        if !visited[vertex] {
+            stack.push((vertex, nil))
+        }
         while !stack.isEmpty {
-            guard let el = stack.pop() else { fatalError("if stack is not empty should have at least one item") }
+            guard let el = stack.pop() else {
+                fatalError("if stack is not empty should have at least one item")
+            }
             if !visited[el.0] {
                 visited[el.0] = true
                 visit(el.0, el.1)
@@ -21,9 +25,11 @@ extension Graph {
     
     func bfs(vertex: Int, visited: inout [Bool], visit: (Int, Int?)->Void) {
         var queue = Queue<Int>()
-        queue.enqueue(vertex)
-        visited[vertex] = true
-        visit(vertex, nil)
+        if !visited[vertex] {
+            queue.enqueue(vertex)
+            visited[vertex] = true
+            visit(vertex, nil)
+        }
         while let idx = queue.dequeue() {
             for edge in self[idx].edges {
                 if !visited[edge] {

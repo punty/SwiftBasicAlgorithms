@@ -30,6 +30,9 @@
 		918FCB2821B9CCD000BD82B0 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918FCB2321B9CAA800BD82B0 /* Graph.swift */; };
 		918FCB2A21B9CCD000BD82B0 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918FCB2221B9CAA800BD82B0 /* Queue.swift */; };
 		918FCB2B21B9CCD000BD82B0 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918FCB2121B9CAA800BD82B0 /* Tree.swift */; };
+		91F9CCD821C54CB40045177B /* Graph+Cycles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F9CCD721C54CB40045177B /* Graph+Cycles.swift */; };
+		91F9CCD921C54CB40045177B /* Graph+Cycles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F9CCD721C54CB40045177B /* Graph+Cycles.swift */; };
+		91F9CCDB21C5572A0045177B /* HasCycleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F9CCDA21C5572A0045177B /* HasCycleTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -62,6 +65,8 @@
 		918FCB2121B9CAA800BD82B0 /* Tree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
 		918FCB2221B9CAA800BD82B0 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		918FCB2321B9CAA800BD82B0 /* Graph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
+		91F9CCD721C54CB40045177B /* Graph+Cycles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Graph+Cycles.swift"; sourceTree = "<group>"; };
+		91F9CCDA21C5572A0045177B /* HasCycleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasCycleTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +95,7 @@
 				292042DE21BAC941002E64B8 /* Graph+Generator.swift */,
 				292042E121BFD0B6002E64B8 /* Graph+ConnectedComponents.swift */,
 				2937B8D821C172B1005603C5 /* Graph+Bipartite.swift */,
+				91F9CCD721C54CB40045177B /* Graph+Cycles.swift */,
 			);
 			path = Algorithms;
 			sourceTree = "<group>";
@@ -130,6 +136,7 @@
 				918FCB1B21B9CA4E00BD82B0 /* Info.plist */,
 				292042EF21C00FC3002E64B8 /* PathTests.swift */,
 				294E431321C2868800BE8B2D /* BipartiteGraphTests.swift */,
+				91F9CCDA21C5572A0045177B /* HasCycleTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -237,6 +244,7 @@
 				292042DF21BAC941002E64B8 /* Graph+Generator.swift in Sources */,
 				292042E821BFDBDD002E64B8 /* Graph+Search.swift in Sources */,
 				2937B8D921C172B1005603C5 /* Graph+Bipartite.swift in Sources */,
+				91F9CCD821C54CB40045177B /* Graph+Cycles.swift in Sources */,
 				292042E221BFD0B6002E64B8 /* Graph+ConnectedComponents.swift in Sources */,
 				292042E521BFD548002E64B8 /* Stack.swift in Sources */,
 				918FCB0D21B9C9DB00BD82B0 /* main.swift in Sources */,
@@ -261,8 +269,10 @@
 				292042E321BFD0B6002E64B8 /* Graph+ConnectedComponents.swift in Sources */,
 				292042E621BFD548002E64B8 /* Stack.swift in Sources */,
 				918FCB1A21B9CA4E00BD82B0 /* SwiftBasicAlgorithmsTests.swift in Sources */,
+				91F9CCDB21C5572A0045177B /* HasCycleTests.swift in Sources */,
 				292042EC21BFE0E9002E64B8 /* Path.swift in Sources */,
 				918FCB2A21B9CCD000BD82B0 /* Queue.swift in Sources */,
+				91F9CCD921C54CB40045177B /* Graph+Cycles.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
