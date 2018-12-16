@@ -19,7 +19,6 @@ class HasCycleTests: XCTestCase {
         let v4 = g.createVertex(data: 4)
         let v5 = g.createVertex(data: 5)
         let v6 = g.createVertex(data: 6)
-        
         g.createEdges(from: v0, to: v1)
         g.createEdges(from: v0, to: v2)
         g.createEdges(from: v0, to: v5)
@@ -29,7 +28,6 @@ class HasCycleTests: XCTestCase {
         g.createEdges(from: v2, to: v4)
         g.createEdges(from: v4, to: v5)
         g.createEdges(from: v4, to: v6)
-        
         XCTAssertTrue(g.hasCycle())
     }
     
@@ -42,14 +40,12 @@ class HasCycleTests: XCTestCase {
         let v4 = g.createVertex(data: 4)
         let v5 = g.createVertex(data: 5)
         let v6 = g.createVertex(data: 6)
-        
         g.createEdges(from: v0, to: v1)
         g.createEdges(from: v0, to: v5)
         g.createEdges(from: v1, to: v3)
         g.createEdges(from: v2, to: v3)
         g.createEdges(from: v4, to: v5)
         g.createEdges(from: v4, to: v6)
-        
         XCTAssertFalse(g.hasCycle())
     }
 

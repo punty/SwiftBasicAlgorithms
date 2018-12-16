@@ -21,10 +21,22 @@ extension Graph: CustomStringConvertible {
     }
 }
 
-struct Graph<T: Hashable> {
-    public init() {}
+struct Graph<T: Hashable>: Collection {
+    func index(after i: Int) -> Int {
+        return i + 1
+    }
     
-    public struct Vertex: Hashable {
+    var startIndex: Int {
+        return 0
+    }
+    
+    var endIndex: Int {
+        return adjacencyList.endIndex
+    }
+    
+    init() {}
+    
+    struct Vertex: Hashable {
         var data: T
         var index: Int
     }
@@ -33,10 +45,7 @@ struct Graph<T: Hashable> {
         return adjacencyList[index]
     }
     
-    var count: Int {
-        return adjacencyList.count
-    }
-    
+   
     var vertexes: [Vertex]  {
         return adjacencyList.map { $0.vertex }
     }
@@ -62,13 +71,13 @@ struct Graph<T: Hashable> {
     
     private var adjacencyList: [EdgeList] = []
     
-    public mutating func createVertex(data: T) -> Vertex {
+    mutating func createVertex(data: T) -> Vertex {
         let vertex = Vertex(data: data, index: adjacencyList.count)
         adjacencyList.append(EdgeList(vertex: vertex))
         return vertex
     }
     
-    public func createEdges(from: Vertex, to: Vertex, weight: Double = 1.0) {
+    func createEdges(from: Vertex, to: Vertex, weight: Double = 1.0) {
         guard let edjesFrom = adjacencyList[safe: from.index],
             let edjesTo = adjacencyList[safe: to.index] else {return}
         edjesFrom.edges.insert(to.index)
