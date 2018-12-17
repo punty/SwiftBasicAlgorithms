@@ -69,7 +69,7 @@ struct Graph<T: Hashable>: Collection {
         }
     }
     
-    private var adjacencyList: [EdgeList] = []
+    var adjacencyList: [EdgeList] = []
     
     mutating func createVertex(data: T) -> Vertex {
         let vertex = Vertex(data: data, index: adjacencyList.count)

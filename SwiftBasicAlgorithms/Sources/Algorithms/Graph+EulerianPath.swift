@@ -12,49 +12,55 @@ extension Graph.EdgeList {
 
 extension Graph {
     
-    private func nextEdge(start: Int) -> Int {
+    private func nextEdge(graph: inout Graph, start: Int) -> Int {
         let edgeList = self[start]
         if edgeList.degree == 1 {
             guard let edge = edgeList.edges.first else {fatalError()}
             return edge
         }
-        
-        return -1
+        var nextEdge = -1
+        for edge in edgeList.edges {
+            if isEdgeABridge(graph: &graph, start: start, edge: edge) {
+                return edge
+            }
+            nextEdge = edge
+        }
+        return nextEdge
     }
     
-    private func countComponents(start: Int) -> Int {
+    private func isEdgeABridge(graph: inout Graph, start: Int, edge: Int) -> Bool {
+        let count = graph.countComponents(graph: &graph, start: start)
+        graph[start].edges.remove(edge)
+        graph[edge].edges.remove(start)
+        let countAfter = graph.countComponents(graph: &graph, start: start)
+        graph[start].edges.insert(edge)
+        graph[edge].edges.insert(start)
+        return count <= countAfter
+    }
+    
+    private func countComponents(graph: inout Graph, start: Int) -> Int {
         var visited = Array<Bool>(repeating: false, count: count)
         var components = 0
-        dfs(vertex: start, visited: &visited) { _, _ in
+        graph.dfs(vertex: start, visited: &visited) { _, _ in
             components += 1
         }
         return components
     }
     
+    private func removeIsolatedVertex(graph: inout Graph) {
+        let f = graph
+            .filter { edgeList -> Bool in
+                edgeList.degree > 0
+            }
+        graph.adjacencyList = f
+    }
     
-    /*
-   
-     
-     // 2) If there are multiple adjacents, then
-     // u-v is not a bridge Do following steps
-     // to check if u-v is a bridge
-     // 2.a) count of vertices reachable from u
-     boolean[] isVisited = new boolean[this.vertices];
-     int count1 = dfsCount(u, isVisited);
-     
-     // 2.b) Remove edge (u, v) and after removing
-     //  the edge, count vertices reachable from u
-     removeEdge(u, v);
-     isVisited = new boolean[this.vertices];
-     int count2 = dfsCount(u, isVisited);
-     
-     // 2.c) Add the edge back to the graph
-     addEdge(u, v);
-     return (count1 > count2) ? false : true;
-     }
-     */
+    private func removeEdge(graph: inout Graph, from: Int, to: Int) {
+        graph[from].edges.remove(to)
+        graph[to].edges.remove(from)
+    }
     
-    func eulerianPath() -> [Vertex]? {
+    func eulerianPath() -> [Int]? {
         guard !isEmpty else { return nil }
         let oddCount = filter { $0.degree % 2 != 0 }.count
         guard oddCount <= 2 else {
@@ -66,8 +72,17 @@ extension Graph {
         if start == nil {
             start = first { $0.degree > 0 }?.vertex
         }
-        let startVertex = start ?? self[0].vertex
+        var startVertex = start?.index ?? self[0].vertex.index
+        var graph = self
+       
+        var path:[Int] = [startVertex]
+        while !graph.isEmpty {
+            let next = nextEdge(graph: &graph, start: startVertex)
+            path.append(next)
+            removeEdge(graph: &graph, from: startVertex, to: next)
+            startVertex = next
+        }
         
-        return [/* TODO */]
+        return path
     }
 }
