@@ -22,6 +22,7 @@
 		2937B8D921C172B1005603C5 /* Graph+Bipartite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2937B8D821C172B1005603C5 /* Graph+Bipartite.swift */; };
 		2937B8DA21C172B1005603C5 /* Graph+Bipartite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2937B8D821C172B1005603C5 /* Graph+Bipartite.swift */; };
 		294E431421C2868800BE8B2D /* BipartiteGraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294E431321C2868800BE8B2D /* BipartiteGraphTests.swift */; };
+		29EDFA4221C9604300861B28 /* EulerianPathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EDFA4121C9604300861B28 /* EulerianPathTests.swift */; };
 		9152553821C6A7C40074DE2B /* Graph+EulerianPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9152553721C6A7C40074DE2B /* Graph+EulerianPath.swift */; };
 		9152553921C6A7C40074DE2B /* Graph+EulerianPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9152553721C6A7C40074DE2B /* Graph+EulerianPath.swift */; };
 		918FCB0D21B9C9DB00BD82B0 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918FCB0C21B9C9DB00BD82B0 /* main.swift */; };
@@ -59,6 +60,7 @@
 		292042EF21C00FC3002E64B8 /* PathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathTests.swift; sourceTree = "<group>"; };
 		2937B8D821C172B1005603C5 /* Graph+Bipartite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Graph+Bipartite.swift"; sourceTree = "<group>"; };
 		294E431321C2868800BE8B2D /* BipartiteGraphTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BipartiteGraphTests.swift; sourceTree = "<group>"; };
+		29EDFA4121C9604300861B28 /* EulerianPathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EulerianPathTests.swift; sourceTree = "<group>"; };
 		9152553721C6A7C40074DE2B /* Graph+EulerianPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Graph+EulerianPath.swift"; sourceTree = "<group>"; };
 		918FCB0921B9C9DB00BD82B0 /* SwiftBasicAlgorithms */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SwiftBasicAlgorithms; sourceTree = BUILT_PRODUCTS_DIR; };
 		918FCB0C21B9C9DB00BD82B0 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				292042EF21C00FC3002E64B8 /* PathTests.swift */,
 				294E431321C2868800BE8B2D /* BipartiteGraphTests.swift */,
 				91F9CCDA21C5572A0045177B /* HasCycleTests.swift */,
+				29EDFA4121C9604300861B28 /* EulerianPathTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				9152553921C6A7C40074DE2B /* Graph+EulerianPath.swift in Sources */,
 				2937B8DA21C172B1005603C5 /* Graph+Bipartite.swift in Sources */,
 				292042EE21C00EED002E64B8 /* ConnectedComponentTests.swift in Sources */,
+				29EDFA4221C9604300861B28 /* EulerianPathTests.swift in Sources */,
 				918FCB2821B9CCD000BD82B0 /* Graph.swift in Sources */,
 				292042F021C00FC3002E64B8 /* PathTests.swift in Sources */,
 				292042E921BFDBDD002E64B8 /* Graph+Search.swift in Sources */,

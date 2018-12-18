@@ -2,13 +2,11 @@
 import Foundation
 
 //Fleury’s Algorithm
-
 extension Graph.EdgeList {
     var degree: Int {
         return edges.count
     }
 }
-
 
 extension Graph {
     
@@ -20,11 +18,12 @@ extension Graph {
         }
         var nextEdge = -1
         for edge in edgeList.edges {
-            if isEdgeABridge(graph: &graph, start: start, edge: edge) {
+            if !isEdgeABridge(graph: &graph, start: start, edge: edge) {
                 return edge
             }
             nextEdge = edge
         }
+        assert(nextEdge >= 0)
         return nextEdge
     }
     
@@ -35,7 +34,7 @@ extension Graph {
         let countAfter = graph.countComponents(graph: &graph, start: start)
         graph[start].edges.insert(edge)
         graph[edge].edges.insert(start)
-        return count <= countAfter
+        return countAfter < count
     }
     
     private func countComponents(graph: inout Graph, start: Int) -> Int {
@@ -47,17 +46,18 @@ extension Graph {
         return components
     }
     
-    private func removeIsolatedVertex(graph: inout Graph) {
-        let f = graph
-            .filter { edgeList -> Bool in
-                edgeList.degree > 0
-            }
-        graph.adjacencyList = f
-    }
-    
     private func removeEdge(graph: inout Graph, from: Int, to: Int) {
         graph[from].edges.remove(to)
         graph[to].edges.remove(from)
+    }
+    
+    private func hasUnusedEdges(graph: Graph)-> Bool {
+        for el in graph {
+            if el.degree > 0 {
+                return false
+            }
+        }
+        return true
     }
     
     func eulerianPath() -> [Int]? {
@@ -76,13 +76,12 @@ extension Graph {
         var graph = self
        
         var path:[Int] = [startVertex]
-        while !graph.isEmpty {
+        while !hasUnusedEdges(graph: graph) {
             let next = nextEdge(graph: &graph, start: startVertex)
             path.append(next)
             removeEdge(graph: &graph, from: startVertex, to: next)
             startVertex = next
         }
-        
         return path
     }
 }
