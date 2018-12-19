@@ -58,10 +58,9 @@ struct Graph<T>: Collection {
         return adjacencyList.map { $0.vertex.index }
     }
     
-    final class EdgeList {
+    struct EdgeList {
         let vertex: Vertex
         var edges: Set<Int> = []
-        var weights: [Int: Double] = [:]
         init (vertex: Vertex) {
             self.vertex = vertex
         }
@@ -75,12 +74,31 @@ struct Graph<T>: Collection {
         return vertex
     }
     
-    func createEdges(from: Vertex, to: Vertex, weight: Double = 1.0) {
-        guard let edjesFrom = adjacencyList[safe: from.index],
-            let edjesTo = adjacencyList[safe: to.index] else {return}
+    mutating func removeEdges(from: Int, to: Int) {
+        guard var edjesFrom = adjacencyList[safe: from],
+            var edjesTo = adjacencyList[safe: to] else {return}
+        edjesFrom.edges.remove(to)
+        edjesTo.edges.remove(from)
+        adjacencyList[from] = edjesFrom
+        adjacencyList[to] = edjesTo
+    }
+    
+    mutating func createEdges(from: Int, to: Int) {
+        guard var edjesFrom = adjacencyList[safe: from],
+            var edjesTo = adjacencyList[safe: to] else {return}
+        edjesFrom.edges.insert(to)
+        edjesTo.edges.insert(from)
+        adjacencyList[from] = edjesFrom
+        adjacencyList[to] = edjesTo
+    }
+    
+    mutating func createEdges(from: Vertex, to: Vertex, weight: Double = 1.0) {
+        guard var edjesFrom = adjacencyList[safe: from.index],
+            var edjesTo = adjacencyList[safe: to.index] else {return}
         edjesFrom.edges.insert(to.index)
-        edjesFrom.weights[to.index] = weight
         edjesTo.edges.insert(from.index)
-        edjesTo.weights[from.index] = weight
+        adjacencyList[from.index] = edjesFrom
+        adjacencyList[to.index] = edjesTo
+        
     }
 }

@@ -10,15 +10,15 @@ extension Graph.EdgeList {
 
 extension Graph {
     
-    private func nextEdge(graph: inout Graph, start: Int) -> Int {
-        let edgeList = self[start]
+    private func nextEdge(graph: Graph, start: Int) -> Int {
+        let edgeList = graph[start]
         if edgeList.degree == 1 {
             guard let edge = edgeList.edges.first else {fatalError()}
             return edge
         }
         var nextEdge = -1
         for edge in edgeList.edges {
-            if !isEdgeABridge(graph: &graph, start: start, edge: edge) {
+            if !isEdgeABridge(graph: graph, start: start, edge: edge) {
                 return edge
             }
             nextEdge = edge
@@ -27,17 +27,16 @@ extension Graph {
         return nextEdge
     }
     
-    private func isEdgeABridge(graph: inout Graph, start: Int, edge: Int) -> Bool {
-        let count = graph.countComponents(graph: &graph, start: start)
-        graph[start].edges.remove(edge)
-        graph[edge].edges.remove(start)
-        let countAfter = graph.countComponents(graph: &graph, start: start)
-        graph[start].edges.insert(edge)
-        graph[edge].edges.insert(start)
+    private func isEdgeABridge(graph: Graph, start: Int, edge: Int) -> Bool {
+        var g = graph
+        let count = g.countComponents(graph: graph, start: start)
+        g.removeEdges(from: start, to: edge)
+        let countAfter = g.countComponents(graph: graph, start: start)
+        g.createEdges(from: start, to: edge)
         return countAfter < count
     }
     
-    private func countComponents(graph: inout Graph, start: Int) -> Int {
+    private func countComponents(graph: Graph, start: Int) -> Int {
         var visited = Array<Bool>(repeating: false, count: count)
         var components = 0
         graph.dfs(vertex: start, visited: &visited) { _, _ in
@@ -46,18 +45,13 @@ extension Graph {
         return components
     }
     
-    private func removeEdge(graph: inout Graph, from: Int, to: Int) {
-        graph[from].edges.remove(to)
-        graph[to].edges.remove(from)
-    }
-    
     private func hasUnusedEdges(graph: Graph)-> Bool {
         for el in graph {
             if el.degree > 0 {
-                return false
+                return true
             }
         }
-        return true
+        return false
     }
     
     func eulerianPath() -> [Int]? {
@@ -73,14 +67,12 @@ extension Graph {
             start = first { $0.degree > 0 }?.vertex
         }
         var startVertex = start?.index ?? self[0].vertex.index
-        #warning ("This is not correct the graph get corrupted")
         var graph = self
-       
         var path:[Int] = [startVertex]
-        while !hasUnusedEdges(graph: graph) {
-            let next = nextEdge(graph: &graph, start: startVertex)
+        while hasUnusedEdges(graph: graph) {
+            let next = nextEdge(graph: graph, start: startVertex)
             path.append(next)
-            removeEdge(graph: &graph, from: startVertex, to: next)
+            graph.removeEdges(from: startVertex, to: next)
             startVertex = next
         }
         return path
