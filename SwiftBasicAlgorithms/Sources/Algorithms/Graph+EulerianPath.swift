@@ -73,6 +73,7 @@ extension Graph {
             start = first { $0.degree > 0 }?.vertex
         }
         var startVertex = start?.index ?? self[0].vertex.index
+        #warning ("This is not correct the graph get corrupted")
         var graph = self
        
         var path:[Int] = [startVertex]

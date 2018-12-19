@@ -24,7 +24,7 @@ extension Path {
         if visited[to.index] {
             var path = [Graph<T>.Vertex]()
             var next = to
-            while next != start {
+            while next.index != start.index {
                 path.append(next)
                 let nextIndex = edgesTo[next.index]
                 guard nextIndex >= 0 else { return [] }

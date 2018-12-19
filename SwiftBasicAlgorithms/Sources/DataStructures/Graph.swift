@@ -21,7 +21,7 @@ extension Graph: CustomStringConvertible {
     }
 }
 
-struct Graph<T: Hashable>: Collection {
+struct Graph<T>: Collection {
     func index(after i: Int) -> Int {
         return i + 1
     }
@@ -36,7 +36,11 @@ struct Graph<T: Hashable>: Collection {
     
     init() {}
     
-    struct Vertex: Hashable {
+    init(from: Graph) {
+        adjacencyList = from.adjacencyList
+    }
+    
+    struct Vertex {
         var data: T
         var index: Int
     }
@@ -55,12 +59,6 @@ struct Graph<T: Hashable>: Collection {
     }
     
     final class EdgeList {
-        static func == (lhs: EdgeList, rhs: EdgeList) -> Bool {
-            return lhs.vertex == rhs.vertex
-        }
-        func hash(into hasher: inout Hasher) {
-            hasher.combine(self.vertex)
-        }
         let vertex: Vertex
         var edges: Set<Int> = []
         var weights: [Int: Double] = [:]
@@ -69,7 +67,7 @@ struct Graph<T: Hashable>: Collection {
         }
     }
     
-    var adjacencyList: [EdgeList] = []
+    private var adjacencyList: [EdgeList] = []
     
     mutating func createVertex(data: T) -> Vertex {
         let vertex = Vertex(data: data, index: adjacencyList.count)
