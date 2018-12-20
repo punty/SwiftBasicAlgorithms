@@ -8,6 +8,7 @@ A collection of basic CS Algorithms
   - DFS
   - Connected Components
   - Bipartite Graph
+  - Fleury's Algorithm for finding Eulerian Path or Circuit
 
 - Graph Generators:
   - Erdős–Rényi (n,M)
