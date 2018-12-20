@@ -1,7 +1,7 @@
 
 import Foundation
 
-extension Graph {
+extension UndirectedGraph {
     func hasCycle() -> Bool {
         var visited = Array<Bool>(repeating: false, count: count)
         for idx in vertexesIndex {

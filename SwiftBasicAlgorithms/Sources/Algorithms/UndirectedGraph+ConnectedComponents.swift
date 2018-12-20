@@ -1,7 +1,7 @@
 
 import Foundation
 
-extension Graph {
+extension UndirectedGraph {
     func connectedComponents() -> [Int] {
         var connectedComponent = Array<Int>(repeating: 0, count: count)
         var visited = Array<Bool>(repeating: false, count: count)

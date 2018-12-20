@@ -1,7 +1,7 @@
 
 import Foundation
 
-extension Graph {
+extension UndirectedGraph {
     func isBipartite() -> Bool {
         if self.count == 0 {
             return true

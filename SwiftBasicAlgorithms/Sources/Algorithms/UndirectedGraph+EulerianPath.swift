@@ -2,15 +2,15 @@
 import Foundation
 
 //Fleury’s Algorithm
-extension Graph.EdgeList {
+extension EdgeList {
     var degree: Int {
         return edges.count
     }
 }
 
-extension Graph {
+extension UndirectedGraph {
     
-    private func nextEdge(graph: Graph, start: Int) -> Int {
+    private func nextEdge(graph: UndirectedGraph, start: Int) -> Int {
         let edgeList = graph[start]
         if edgeList.degree == 1 {
             guard let edge = edgeList.edges.first else {fatalError()}
@@ -27,16 +27,16 @@ extension Graph {
         return nextEdge
     }
     
-    private func isEdgeABridge(graph: Graph, start: Int, edge: Int) -> Bool {
+    private func isEdgeABridge(graph: UndirectedGraph, start: Int, edge: Int) -> Bool {
         var g = graph
         let count = g.countComponents(graph: graph, start: start)
-        g.removeEdges(from: start, to: edge)
+        g.removeEdge(from: start, to: edge)
         let countAfter = g.countComponents(graph: graph, start: start)
-        g.createEdges(from: start, to: edge)
+        g.createEdge(from: start, to: edge)
         return countAfter < count
     }
     
-    private func countComponents(graph: Graph, start: Int) -> Int {
+    private func countComponents(graph: UndirectedGraph, start: Int) -> Int {
         var visited = Array<Bool>(repeating: false, count: count)
         var components = 0
         graph.dfs(vertex: start, visited: &visited) { _, _ in
@@ -45,7 +45,7 @@ extension Graph {
         return components
     }
     
-    private func hasUnusedEdges(graph: Graph)-> Bool {
+    private func hasUnusedEdges(graph: UndirectedGraph)-> Bool {
         for el in graph {
             if el.degree > 0 {
                 return true
@@ -72,7 +72,7 @@ extension Graph {
         while hasUnusedEdges(graph: graph) {
             let next = nextEdge(graph: graph, start: startVertex)
             path.append(next)
-            graph.removeEdges(from: startVertex, to: next)
+            graph.removeEdge(from: startVertex, to: next)
             startVertex = next
         }
         return path

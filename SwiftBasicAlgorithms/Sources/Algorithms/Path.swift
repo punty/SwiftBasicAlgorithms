@@ -4,10 +4,10 @@ import Foundation
 class Path<T: Hashable> {
     var visited: [Bool]
     var edgesTo: [Int]
-    var start: Graph<T>.Vertex
-    var graph: Graph<T>
+    var start: Vertex<T>
+    var graph: UndirectedGraph<T>
     
-    init (graph: Graph<T>, start: Graph<T>.Vertex) {
+    init (graph: UndirectedGraph<T>, start: Vertex<T>) {
         self.graph = graph
         self.start = start
         self.visited = Array<Bool>(repeating: false, count: graph.count)
@@ -20,9 +20,9 @@ class Path<T: Hashable> {
 }
 
 extension Path {
-    public func path(to: Graph<T>.Vertex) -> [Graph<T>.Vertex] {
+    public func path(to: Vertex<T>) -> [Vertex<T>] {
         if visited[to.index] {
-            var path = [Graph<T>.Vertex]()
+            var path = [Vertex<T>]()
             var next = to
             while next.index != start.index {
                 path.append(next)
