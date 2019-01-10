@@ -1,7 +1,7 @@
 
 import Foundation
 
-extension UndirectedGraph {
+extension Graph {
     func dfs(vertex: Int, visited: inout [Bool], visit: (Int, Int?)->Void) {
         var stack = Stack<(Int, Int?)>()
         if !visited[vertex] {

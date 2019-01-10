@@ -33,6 +33,10 @@
 		918FCB2821B9CCD000BD82B0 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918FCB2321B9CAA800BD82B0 /* Graph.swift */; };
 		918FCB2A21B9CCD000BD82B0 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918FCB2221B9CAA800BD82B0 /* Queue.swift */; };
 		918FCB2B21B9CCD000BD82B0 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918FCB2121B9CAA800BD82B0 /* Tree.swift */; };
+		919F349C21E7F6E700F2E2CB /* Digraph+TopologicalSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919F349B21E7F6E700F2E2CB /* Digraph+TopologicalSort.swift */; };
+		919F349D21E7F6E700F2E2CB /* Digraph+TopologicalSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919F349B21E7F6E700F2E2CB /* Digraph+TopologicalSort.swift */; };
+		919F349F21E7F70800F2E2CB /* Digraph+DAG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919F349E21E7F70800F2E2CB /* Digraph+DAG.swift */; };
+		919F34A021E7F70800F2E2CB /* Digraph+DAG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919F349E21E7F70800F2E2CB /* Digraph+DAG.swift */; };
 		91AC3AA121CC47FB00EF427E /* Digraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AC3AA021CC47FA00EF427E /* Digraph.swift */; };
 		91AC3AA221CC47FB00EF427E /* Digraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AC3AA021CC47FA00EF427E /* Digraph.swift */; };
 		91AC3AA421CC489100EF427E /* EdgeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AC3AA321CC489100EF427E /* EdgeList.swift */; };
@@ -76,6 +80,8 @@
 		918FCB2121B9CAA800BD82B0 /* Tree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
 		918FCB2221B9CAA800BD82B0 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		918FCB2321B9CAA800BD82B0 /* Graph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
+		919F349B21E7F6E700F2E2CB /* Digraph+TopologicalSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Digraph+TopologicalSort.swift"; sourceTree = "<group>"; };
+		919F349E21E7F70800F2E2CB /* Digraph+DAG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Digraph+DAG.swift"; sourceTree = "<group>"; };
 		91AC3AA021CC47FA00EF427E /* Digraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Digraph.swift; sourceTree = "<group>"; };
 		91AC3AA321CC489100EF427E /* EdgeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeList.swift; sourceTree = "<group>"; };
 		91AC3AA621CC4D0100EF427E /* UndirectGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndirectGraph.swift; sourceTree = "<group>"; };
@@ -111,6 +117,8 @@
 				2937B8D821C172B1005603C5 /* UndirectedGraph+Bipartite.swift */,
 				91F9CCD721C54CB40045177B /* UndirectedGraph+Cycles.swift */,
 				9152553721C6A7C40074DE2B /* UndirectedGraph+EulerianPath.swift */,
+				919F349B21E7F6E700F2E2CB /* Digraph+TopologicalSort.swift */,
+				919F349E21E7F70800F2E2CB /* Digraph+DAG.swift */,
 			);
 			path = Algorithms;
 			sourceTree = "<group>";
@@ -266,10 +274,12 @@
 				91F9CCD821C54CB40045177B /* UndirectedGraph+Cycles.swift in Sources */,
 				292042E221BFD0B6002E64B8 /* UndirectedGraph+ConnectedComponents.swift in Sources */,
 				9152553821C6A7C40074DE2B /* UndirectedGraph+EulerianPath.swift in Sources */,
+				919F349C21E7F6E700F2E2CB /* Digraph+TopologicalSort.swift in Sources */,
 				292042E521BFD548002E64B8 /* Stack.swift in Sources */,
 				91AC3AA421CC489100EF427E /* EdgeList.swift in Sources */,
 				918FCB0D21B9C9DB00BD82B0 /* main.swift in Sources */,
 				918FCB2621B9CAA800BD82B0 /* Queue.swift in Sources */,
+				919F349F21E7F70800F2E2CB /* Digraph+DAG.swift in Sources */,
 				91AC3AA121CC47FB00EF427E /* Digraph.swift in Sources */,
 				292042EB21BFE0E9002E64B8 /* Path.swift in Sources */,
 				91AC3AA721CC4D0100EF427E /* UndirectGraph.swift in Sources */,
@@ -281,6 +291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				919F34A021E7F70800F2E2CB /* Digraph+DAG.swift in Sources */,
 				91AC3AA521CC489100EF427E /* EdgeList.swift in Sources */,
 				918FCB2B21B9CCD000BD82B0 /* Tree.swift in Sources */,
 				294E431421C2868800BE8B2D /* BipartiteGraphTests.swift in Sources */,
@@ -291,6 +302,7 @@
 				918FCB2821B9CCD000BD82B0 /* Graph.swift in Sources */,
 				91AC3AA221CC47FB00EF427E /* Digraph.swift in Sources */,
 				292042F021C00FC3002E64B8 /* PathTests.swift in Sources */,
+				919F349D21E7F6E700F2E2CB /* Digraph+TopologicalSort.swift in Sources */,
 				292042E921BFDBDD002E64B8 /* UndirectedGraph+Search.swift in Sources */,
 				292042E021BAC941002E64B8 /* UndirectedGraph+Generator.swift in Sources */,
 				292042E321BFD0B6002E64B8 /* UndirectedGraph+ConnectedComponents.swift in Sources */,
