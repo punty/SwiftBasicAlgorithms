@@ -1,7 +1,7 @@
 
 import Foundation
 
-struct Stack<T> {
+struct Stack<T>: CustomStringConvertible {
     private var storage = [T]()
     var isEmpty: Bool {
         return storage.isEmpty
@@ -14,5 +14,8 @@ struct Stack<T> {
     }
     mutating func pop() -> T? {
         return storage.popLast()
+    }
+    var description: String {
+        return storage.description
     }
 }
