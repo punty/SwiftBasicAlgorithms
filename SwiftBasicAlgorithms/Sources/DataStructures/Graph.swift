@@ -3,8 +3,9 @@ import Foundation
 
 protocol Graph: Collection, CustomStringConvertible {
     associatedtype T
+    init()
     var adjacencyList: [EdgeList<T>] { get }
-    mutating func createVertex(data: T) -> Vertex<T>
+    @discardableResult mutating func createVertex(data: T) -> Vertex<T>
     mutating func createEdge(from: Int, to: Int)
     mutating func removeEdge(from: Int, to: Int)
 }

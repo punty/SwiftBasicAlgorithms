@@ -25,24 +25,18 @@ extension UndirectedGraph {
         }
         assert(nextEdge >= 0)
         return nextEdge
-    }
+  }
     
     private func isEdgeABridge(graph: UndirectedGraph, start: Int, edge: Int) -> Bool {
         var g = graph
         let count = g.countComponents(graph: graph, start: start)
         g.removeEdge(from: start, to: edge)
         let countAfter = g.countComponents(graph: graph, start: start)
-        g.createEdge(from: start, to: edge)
         return countAfter < count
     }
     
     private func countComponents(graph: UndirectedGraph, start: Int) -> Int {
-        var visited = Array<Bool>(repeating: false, count: count)
-        var components = 0
-        graph.dfs(vertex: start, visited: &visited) { _, _ in
-            components += 1
-        }
-        return components
+        return adjacencyList.filter { !$0.edges.isEmpty }.count
     }
     
     private func hasUnusedEdges(graph: UndirectedGraph)-> Bool {
