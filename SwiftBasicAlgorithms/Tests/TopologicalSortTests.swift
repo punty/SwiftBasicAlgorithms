@@ -1,10 +1,3 @@
-//
-//  TopologicalSortTests.swift
-//  SwiftBasicAlgorithmsTests
-//
-//  Created by Francesco Puntillo on 20/01/2019.
-//  Copyright © 2019 FP. All rights reserved.
-//
 
 import XCTest
 
