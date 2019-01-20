@@ -47,7 +47,11 @@ extension UndirectedGraph {
         }
         return false
     }
-    
+    /**
+     Finds the Eulerian Trail (a path that use all the edges exactly once)
+     - returns:
+     Returns the Eulerian Trail (if found)
+     */
     func eulerianPath() -> [Int]? {
         guard !isEmpty else { return nil }
         let oddCount = filter { $0.degree % 2 != 0 }.count

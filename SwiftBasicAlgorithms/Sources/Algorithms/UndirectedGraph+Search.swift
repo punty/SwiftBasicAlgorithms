@@ -1,25 +1,34 @@
 
 import Foundation
 
-extension Graph {
-    func dfs(vertex: Int, visited: inout [Bool], visit: (Int, Int?)->Void) {
-        var stack = Stack<(Int, Int?)>()
-        if !visited[vertex] {
-            stack.push((vertex, nil))
+enum DFSOrder {
+    case pre
+    case post
+    var isPre: Bool {
+        switch self {
+        case .post:
+            return false
+        case .pre:
+            return true
         }
-        while !stack.isEmpty {
-            guard let el = stack.pop() else {
-                fatalError("if stack is not empty should have at least one item")
+    }
+}
+
+extension Graph {
+    
+    func dfs(vertex: Int, order: DFSOrder, visited: inout [Bool], visit: (Int, Int?)->Void) {
+        if order.isPre {
+            visited[vertex] = true
+            visit(vertex, nil)
+        }
+        for edge in self[vertex].edges {
+            if !visited[edge]{
+                dfs(vertex: edge, order: order, visited: &visited, visit: visit)
             }
-            if !visited[el.0] {
-                visited[el.0] = true
-                visit(el.0, el.1)
-            }
-            for edge in self[el.0].edges {
-                if !visited[edge] {
-                    stack.push((edge,el.0))
-                }
-            }
+        }
+        if !order.isPre {
+            visited[vertex] = true
+            visit(vertex, nil)
         }
     }
     

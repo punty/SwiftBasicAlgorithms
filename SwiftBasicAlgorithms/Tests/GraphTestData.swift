@@ -10,6 +10,17 @@ import Foundation
 import XCTest
 
 struct TestData {
+
+static let topologicalSort = """
+5
+0 1
+0 2
+1 2
+1 3
+2 3
+2 4
+"""
+
 static let DAG = """
 13
 2 3
@@ -56,7 +67,6 @@ static let directGraph = """
 """
 }
 
-
 extension Graph where Self.T == Int {
     static func create(from string: String) -> Self {
         var g = Self()
@@ -77,12 +87,3 @@ extension Graph where Self.T == Int {
         return g
     }
 }
-class FindDAG: XCTestCase {
-    
-    func testHasCycle() {
-        let g = Digraph<Int>.create(from: TestData.DAG)
-        XCTAssertTrue(g.findDag().isEmpty)
-    }
-    
-}
-

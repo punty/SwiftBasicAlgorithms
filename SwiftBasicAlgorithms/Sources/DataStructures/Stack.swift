@@ -2,7 +2,7 @@
 import Foundation
 
 struct Stack<T>: CustomStringConvertible {
-    private var storage = [T]()
+    var storage = [T]()
     var isEmpty: Bool {
         return storage.isEmpty
     }

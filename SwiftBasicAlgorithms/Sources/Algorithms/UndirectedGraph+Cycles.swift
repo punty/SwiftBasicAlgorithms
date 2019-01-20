@@ -2,6 +2,11 @@
 import Foundation
 
 extension UndirectedGraph {
+    /**
+     Check if the UndirectedGraph has at least one undirected cycle
+     - returns:
+     Returns true if a cycle has being found
+     */
     func hasCycle() -> Bool {
         var visited = Array<Bool>(repeating: false, count: count)
         for idx in vertexesIndex {

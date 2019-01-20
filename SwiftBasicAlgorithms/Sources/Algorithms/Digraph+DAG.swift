@@ -7,20 +7,25 @@
 //
 
 import Foundation
-
+/**
+ Finds a directed cycle in a digraph
+ 
+ - returns:
+ Returns a directed cycle (if found)
+ */
 extension Digraph {
     
-    func findDag() -> Stack<Int> {
+    func findDirectedCycle() -> [Int] {
         var visited = Array<Bool>(repeating: false, count: count)
         var onStack = Array<Bool>(repeating: false, count: count)
         var edgesTo = Array<Int>(repeating: -1, count: count)
         var cycle = Stack<Int>()
         for idx in vertexesIndex {
-            if !visited[idx] {
+            if !visited[idx] && cycle.isEmpty {
                 findDag(root: idx, visited:&visited, edgesTo: &edgesTo, onStack: &onStack, cycle: &cycle)
             }
         }
-        return cycle
+        return cycle.storage.reversed()
     }
     
     private func findDag(root: Int,
@@ -43,9 +48,10 @@ extension Digraph {
             } else if onStack[edge] {
                var next = root
                 while next != edge {
-                    next = edgesTo[next]
                     cycle.push(next)
+                    next = edgesTo[next]
                 }
+                cycle.push(edge)
                 cycle.push(root)
             }
         }

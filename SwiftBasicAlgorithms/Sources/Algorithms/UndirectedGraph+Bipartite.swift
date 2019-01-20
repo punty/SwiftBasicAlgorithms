@@ -2,6 +2,11 @@
 import Foundation
 
 extension UndirectedGraph {
+    /**
+     Check if the UndirectedGraph is Bipartite (a graph whose vertices can be divided into two disjoint and independent sets)
+     - returns:
+     Returns true if a cycle is Bipartite
+     */
     func isBipartite() -> Bool {
         if self.count == 0 {
             return true

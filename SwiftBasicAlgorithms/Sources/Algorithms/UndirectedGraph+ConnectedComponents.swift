@@ -8,7 +8,7 @@ extension UndirectedGraph {
         var cId = 0
         for idx in vertexesIndex {
             if !visited[idx] {
-                dfs(vertex: idx, visited: &visited) { (idx, _) in
+                dfs(vertex: idx, order: .pre, visited: &visited) { (idx, _) in
                     connectedComponent[idx] = cId
                 }
                 cId += 1

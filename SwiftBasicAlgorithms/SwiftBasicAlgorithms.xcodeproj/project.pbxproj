@@ -23,6 +23,8 @@
 		2937B8DA21C172B1005603C5 /* UndirectedGraph+Bipartite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2937B8D821C172B1005603C5 /* UndirectedGraph+Bipartite.swift */; };
 		294E431421C2868800BE8B2D /* BipartiteGraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294E431321C2868800BE8B2D /* BipartiteGraphTests.swift */; };
 		29EDFA4221C9604300861B28 /* EulerianPathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EDFA4121C9604300861B28 /* EulerianPathTests.swift */; };
+		913AB23421F5394C00B21416 /* FindDirectedCycleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913AB23321F5394C00B21416 /* FindDirectedCycleTests.swift */; };
+		913AB23621F5398900B21416 /* TopologicalSortTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913AB23521F5398900B21416 /* TopologicalSortTests.swift */; };
 		9152553821C6A7C40074DE2B /* UndirectedGraph+EulerianPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9152553721C6A7C40074DE2B /* UndirectedGraph+EulerianPath.swift */; };
 		9152553921C6A7C40074DE2B /* UndirectedGraph+EulerianPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9152553721C6A7C40074DE2B /* UndirectedGraph+EulerianPath.swift */; };
 		9178A20621EFE945002FF8B5 /* GraphTestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9178A20521EFE945002FF8B5 /* GraphTestData.swift */; };
@@ -72,6 +74,8 @@
 		2937B8D821C172B1005603C5 /* UndirectedGraph+Bipartite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UndirectedGraph+Bipartite.swift"; sourceTree = "<group>"; };
 		294E431321C2868800BE8B2D /* BipartiteGraphTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BipartiteGraphTests.swift; sourceTree = "<group>"; };
 		29EDFA4121C9604300861B28 /* EulerianPathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EulerianPathTests.swift; sourceTree = "<group>"; };
+		913AB23321F5394C00B21416 /* FindDirectedCycleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindDirectedCycleTests.swift; sourceTree = "<group>"; };
+		913AB23521F5398900B21416 /* TopologicalSortTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopologicalSortTests.swift; sourceTree = "<group>"; };
 		9152553721C6A7C40074DE2B /* UndirectedGraph+EulerianPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UndirectedGraph+EulerianPath.swift"; sourceTree = "<group>"; };
 		9178A20521EFE945002FF8B5 /* GraphTestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphTestData.swift; sourceTree = "<group>"; };
 		918FCB0921B9C9DB00BD82B0 /* SwiftBasicAlgorithms */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SwiftBasicAlgorithms; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,6 +168,8 @@
 				91F9CCDA21C5572A0045177B /* HasCycleTests.swift */,
 				29EDFA4121C9604300861B28 /* EulerianPathTests.swift */,
 				9178A20521EFE945002FF8B5 /* GraphTestData.swift */,
+				913AB23321F5394C00B21416 /* FindDirectedCycleTests.swift */,
+				913AB23521F5398900B21416 /* TopologicalSortTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -301,6 +307,7 @@
 				9152553921C6A7C40074DE2B /* UndirectedGraph+EulerianPath.swift in Sources */,
 				2937B8DA21C172B1005603C5 /* UndirectedGraph+Bipartite.swift in Sources */,
 				292042EE21C00EED002E64B8 /* ConnectedComponentTests.swift in Sources */,
+				913AB23421F5394C00B21416 /* FindDirectedCycleTests.swift in Sources */,
 				29EDFA4221C9604300861B28 /* EulerianPathTests.swift in Sources */,
 				918FCB2821B9CCD000BD82B0 /* Graph.swift in Sources */,
 				91AC3AA221CC47FB00EF427E /* Digraph.swift in Sources */,
@@ -308,6 +315,7 @@
 				919F349D21E7F6E700F2E2CB /* Digraph+TopologicalSort.swift in Sources */,
 				292042E921BFDBDD002E64B8 /* UndirectedGraph+Search.swift in Sources */,
 				292042E021BAC941002E64B8 /* UndirectedGraph+Generator.swift in Sources */,
+				913AB23621F5398900B21416 /* TopologicalSortTests.swift in Sources */,
 				292042E321BFD0B6002E64B8 /* UndirectedGraph+ConnectedComponents.swift in Sources */,
 				9178A20621EFE945002FF8B5 /* GraphTestData.swift in Sources */,
 				292042E621BFD548002E64B8 /* Stack.swift in Sources */,
