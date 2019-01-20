@@ -52,7 +52,6 @@ extension Digraph {
                     next = edgesTo[next]
                 }
                 cycle.push(edge)
-                cycle.push(root)
             }
         }
         onStack[root] = false

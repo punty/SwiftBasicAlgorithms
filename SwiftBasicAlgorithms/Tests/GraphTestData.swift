@@ -39,6 +39,13 @@ static let DAG = """
 6 9
 7 6
 """
+    
+static let simpleDirected = """
+3
+0 1
+1 2
+2 0
+"""
 
 static let directGraph = """
 13
