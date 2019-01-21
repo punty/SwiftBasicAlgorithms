@@ -2,7 +2,7 @@
 import Foundation
 
 struct Stack<T>: CustomStringConvertible {
-    var storage = [T]()
+    private var storage = [T]()
     var isEmpty: Bool {
         return storage.isEmpty
     }
@@ -18,4 +18,8 @@ struct Stack<T>: CustomStringConvertible {
     var description: String {
         return storage.description
     }
+    var array: [T] {
+        return storage.reversed()
+    }
+    
 }

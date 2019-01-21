@@ -1,11 +1,3 @@
-//
-//  Digraph+DAG.swift
-//  SwiftBasicAlgorithms
-//
-//  Created by Francesco Puntillo on 10/01/2019.
-//  Copyright © 2019 FP. All rights reserved.
-//
-
 import Foundation
 /**
  Finds a directed cycle in a digraph
@@ -25,7 +17,7 @@ extension Digraph {
                 findDag(root: idx, visited:&visited, edgesTo: &edgesTo, onStack: &onStack, cycle: &cycle)
             }
         }
-        return cycle.storage.reversed()
+        return cycle.array
     }
     
     private func findDag(root: Int,

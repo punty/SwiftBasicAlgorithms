@@ -25,6 +25,7 @@
 		29EDFA4221C9604300861B28 /* EulerianPathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EDFA4121C9604300861B28 /* EulerianPathTests.swift */; };
 		913AB23421F5394C00B21416 /* FindDirectedCycleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913AB23321F5394C00B21416 /* FindDirectedCycleTests.swift */; };
 		913AB23621F5398900B21416 /* TopologicalSortTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913AB23521F5398900B21416 /* TopologicalSortTests.swift */; };
+		913AB23821F6121400B21416 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913AB23721F6121400B21416 /* TestData.swift */; };
 		9152553821C6A7C40074DE2B /* UndirectedGraph+EulerianPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9152553721C6A7C40074DE2B /* UndirectedGraph+EulerianPath.swift */; };
 		9152553921C6A7C40074DE2B /* UndirectedGraph+EulerianPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9152553721C6A7C40074DE2B /* UndirectedGraph+EulerianPath.swift */; };
 		9178A20621EFE945002FF8B5 /* GraphTestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9178A20521EFE945002FF8B5 /* GraphTestData.swift */; };
@@ -76,6 +77,7 @@
 		29EDFA4121C9604300861B28 /* EulerianPathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EulerianPathTests.swift; sourceTree = "<group>"; };
 		913AB23321F5394C00B21416 /* FindDirectedCycleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindDirectedCycleTests.swift; sourceTree = "<group>"; };
 		913AB23521F5398900B21416 /* TopologicalSortTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopologicalSortTests.swift; sourceTree = "<group>"; };
+		913AB23721F6121400B21416 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		9152553721C6A7C40074DE2B /* UndirectedGraph+EulerianPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UndirectedGraph+EulerianPath.swift"; sourceTree = "<group>"; };
 		9178A20521EFE945002FF8B5 /* GraphTestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphTestData.swift; sourceTree = "<group>"; };
 		918FCB0921B9C9DB00BD82B0 /* SwiftBasicAlgorithms */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SwiftBasicAlgorithms; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,6 +172,7 @@
 				9178A20521EFE945002FF8B5 /* GraphTestData.swift */,
 				913AB23321F5394C00B21416 /* FindDirectedCycleTests.swift */,
 				913AB23521F5398900B21416 /* TopologicalSortTests.swift */,
+				913AB23721F6121400B21416 /* TestData.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				292042E021BAC941002E64B8 /* UndirectedGraph+Generator.swift in Sources */,
 				913AB23621F5398900B21416 /* TopologicalSortTests.swift in Sources */,
 				292042E321BFD0B6002E64B8 /* UndirectedGraph+ConnectedComponents.swift in Sources */,
+				913AB23821F6121400B21416 /* TestData.swift in Sources */,
 				9178A20621EFE945002FF8B5 /* GraphTestData.swift in Sources */,
 				292042E621BFD548002E64B8 /* Stack.swift in Sources */,
 				918FCB1A21B9CA4E00BD82B0 /* SwiftBasicAlgorithmsTests.swift in Sources */,
