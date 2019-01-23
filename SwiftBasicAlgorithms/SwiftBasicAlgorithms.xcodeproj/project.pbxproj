@@ -118,15 +118,7 @@
 		292042DD21BAC920002E64B8 /* Algorithms */ = {
 			isa = PBXGroup;
 			children = (
-				292042EA21BFE0E9002E64B8 /* Path.swift */,
-				292042E721BFDBDD002E64B8 /* UndirectedGraph+Search.swift */,
-				292042DE21BAC941002E64B8 /* UndirectedGraph+Generator.swift */,
-				292042E121BFD0B6002E64B8 /* UndirectedGraph+ConnectedComponents.swift */,
-				2937B8D821C172B1005603C5 /* UndirectedGraph+Bipartite.swift */,
-				91F9CCD721C54CB40045177B /* UndirectedGraph+Cycles.swift */,
-				9152553721C6A7C40074DE2B /* UndirectedGraph+EulerianPath.swift */,
-				919F349B21E7F6E700F2E2CB /* Digraph+TopologicalSort.swift */,
-				919F349E21E7F70800F2E2CB /* Digraph+DAG.swift */,
+				91B2BFC521F8D28700306145 /* Graphs */,
 			);
 			path = Algorithms;
 			sourceTree = "<group>";
@@ -189,6 +181,38 @@
 				91AC3AA621CC4D0100EF427E /* UndirectGraph.swift */,
 			);
 			path = DataStructures;
+			sourceTree = "<group>";
+		};
+		91B2BFC521F8D28700306145 /* Graphs */ = {
+			isa = PBXGroup;
+			children = (
+				91B2BFC621F8D29800306145 /* Undirected */,
+				91B2BFC721F8D2A500306145 /* Directed */,
+			);
+			path = Graphs;
+			sourceTree = "<group>";
+		};
+		91B2BFC621F8D29800306145 /* Undirected */ = {
+			isa = PBXGroup;
+			children = (
+				292042EA21BFE0E9002E64B8 /* Path.swift */,
+				292042E721BFDBDD002E64B8 /* UndirectedGraph+Search.swift */,
+				292042DE21BAC941002E64B8 /* UndirectedGraph+Generator.swift */,
+				292042E121BFD0B6002E64B8 /* UndirectedGraph+ConnectedComponents.swift */,
+				2937B8D821C172B1005603C5 /* UndirectedGraph+Bipartite.swift */,
+				91F9CCD721C54CB40045177B /* UndirectedGraph+Cycles.swift */,
+				9152553721C6A7C40074DE2B /* UndirectedGraph+EulerianPath.swift */,
+			);
+			path = Undirected;
+			sourceTree = "<group>";
+		};
+		91B2BFC721F8D2A500306145 /* Directed */ = {
+			isa = PBXGroup;
+			children = (
+				919F349B21E7F6E700F2E2CB /* Digraph+TopologicalSort.swift */,
+				919F349E21E7F70800F2E2CB /* Digraph+DAG.swift */,
+			);
+			path = Directed;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

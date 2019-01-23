@@ -21,15 +21,15 @@ class TreeNode<T: Comparable> {
     }
     
     func append(node: TreeNode<T>) {
-        self.children.append(node)
         node.parent = self
+        self.children.append(node)
     }
     
     func append(nodes: [TreeNode<T>]) {
-        self.children.append(contentsOf: nodes)
         nodes.forEach { node in
             node.parent = self
         }
+        self.children.append(contentsOf: nodes)
     }
 }
 
